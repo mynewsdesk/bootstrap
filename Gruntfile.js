@@ -368,6 +368,10 @@ module.exports = function (grunt) {
       less: {
         files: 'less/*.less',
         tasks: 'less'
+      },
+      mnd: {
+        files: 'docs/assets/css/mnd-bootstrap.css',
+        tasks: 'jekyll'
       }
     },
 

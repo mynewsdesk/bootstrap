@@ -14,7 +14,6 @@
   "homepage": "http://getbootstrap.com",
   "author": "Twitter, Inc.",
   "scripts": {
-    "postinstall": "ln -s -F ~/Projects/mnd-bootstrap/public/stylesheets/mnd-bootstrap.css docs/assets/css/mnd-bootstrap.css",
     "test": "grunt test"
   },
   "style": "dist/css/bootstrap.css",

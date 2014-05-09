@@ -369,6 +369,10 @@ module.exports = function (grunt) {
         files: 'less/*.less',
         tasks: 'less'
       },
+      sass: {
+        files: '../mnd-bootstrap/public/stylesheets/mnd-bootstrap.css',
+        tasks: 'copy_compiled'
+      },
       mnd: {
         files: 'docs/assets/css/mnd-bootstrap.css',
         tasks: 'jekyll'
@@ -403,6 +407,9 @@ module.exports = function (grunt) {
       },
       npmShrinkWrap: {
         command: 'npm shrinkwrap --dev'
+      },
+      copyCompiled: {
+        command: 'cp -f ~/Projects/mnd-bootstrap/public/stylesheets/mnd-bootstrap.css docs/assets/css/mnd-bootstrap.css'
       }
     }
   });
@@ -468,4 +475,6 @@ module.exports = function (grunt) {
   // Task for updating the npm packages used by the Travis build.
   grunt.registerTask('update-shrinkwrap', ['exec:npmUpdate', 'exec:npmShrinkWrap', '_update-shrinkwrap']);
   grunt.registerTask('_update-shrinkwrap', function () { updateShrinkwrap.call(this, grunt); });
+
+  grunt.registerTask('copy_compiled', 'exec:copyCompiled');
 };

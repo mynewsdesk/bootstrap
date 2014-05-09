@@ -21,6 +21,7 @@ module.exports = function (grunt) {
   var BsLessdocParser = require('./grunt/bs-lessdoc-parser.js');
   var generateRawFiles = require('./grunt/bs-raw-files-generator.js');
   var updateShrinkwrap = require('./grunt/shrinkwrap.js');
+  var mndBootstrapPath = '../mnd-bootstrap';
 
   // Project configuration.
   grunt.initConfig({
@@ -33,6 +34,7 @@ module.exports = function (grunt) {
             ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
             ' */\n',
     jqueryCheck: 'if (typeof jQuery === \'undefined\') { throw new Error(\'Bootstrap\\\'s JavaScript requires jQuery\') }\n\n',
+    mndBootstrapPath: mndBootstrapPath,
 
     // Task configuration.
     clean: {
@@ -370,7 +372,7 @@ module.exports = function (grunt) {
         tasks: 'less'
       },
       sass: {
-        files: '../mnd-bootstrap/public/stylesheets/mnd-bootstrap.css',
+        files: '<%= mndBootstrapPath %>/public/stylesheets/mnd-bootstrap.css',
         tasks: 'copy_compiled'
       },
       mnd: {
@@ -409,7 +411,7 @@ module.exports = function (grunt) {
         command: 'npm shrinkwrap --dev'
       },
       copyCompiled: {
-        command: 'cp -f ~/Projects/mnd-bootstrap/public/stylesheets/mnd-bootstrap.css docs/assets/css/mnd-bootstrap.css'
+        command: 'cp -f <%= mndBootstrapPath %>/public/stylesheets/mnd-bootstrap.css docs/assets/css/mnd-bootstrap.css'
       }
     }
   });

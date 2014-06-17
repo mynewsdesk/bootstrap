@@ -372,7 +372,7 @@ module.exports = function (grunt) {
         tasks: 'less'
       },
       sass: {
-        files: '<%= mndBootstrapPath %>/public/stylesheets/mnd-bootstrap.css',
+        files: '<%= mndBootstrapPath %>/dist/mnd-bootstrap-dev.css',
         tasks: 'copy_compiled'
       },
       mnd: {
@@ -411,7 +411,7 @@ module.exports = function (grunt) {
         command: 'npm shrinkwrap --dev'
       },
       copyCompiled: {
-        command: 'cp -f <%= mndBootstrapPath %>/public/stylesheets/mnd-bootstrap.css docs/assets/css/mnd-bootstrap.css'
+        command: 'cp -f <%= mndBootstrapPath %>/dist/mnd-bootstrap.css docs/assets/css/mnd-bootstrap.css'
       }
     }
   });
